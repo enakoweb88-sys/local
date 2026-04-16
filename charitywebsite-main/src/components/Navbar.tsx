@@ -112,6 +112,8 @@ const Navbar = () => {
     }, []);
 
     useEffect(() => {
+        // Close menu when navigation occurs
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsMobileMenuOpen(false);
         setActiveDropdown(null);
         setActiveSub(null);

@@ -4,7 +4,11 @@ import { useLanguage } from '../context/LanguageContext';
 
 declare global {
   interface Window {
-    google: any;
+    google?: {
+      translate?: {
+        TranslateElement?: new (options: Record<string, unknown>, elementId: string) => void;
+      };
+    };
     googleTranslateElementInit?: () => void;
   }
 }

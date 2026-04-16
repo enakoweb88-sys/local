@@ -18,9 +18,9 @@ const StoriesHero = () => {
                         <span className="material-symbols-outlined text-sm">auto_stories</span>
                         Human Impact
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black leading-[1.05] tracking-tighter mb-6">
+                    <h1 className="text-4xl md:text-6xl leading-[1.05] mb-6">
                         Real Stories. <br />
-                        <span className="text-secondary ">Real Change.</span>
+                        <span style={{ color: '#00BFA5' }}>Real Change.</span>
                     </h1>
                     <p className="text-slate-200 text-lg md:text-2xl font-medium leading-relaxed max-w-2xl mx-auto ">
                         Discover the personal journeys of students, teachers, and communities empowered by Enako Outreach.

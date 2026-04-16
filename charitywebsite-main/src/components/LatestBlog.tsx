@@ -11,19 +11,19 @@ const LatestBlog = () => {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
                     <div className="max-w-2xl">
-                        <FadeIn direction="right">
+                        <FadeIn direction="right" scale={0.92} threshold={0.3}>
                             <span className="text-secondary font-black tracking-[0.4em] uppercase text-[10px] block mb-6">Latest News</span>
                             <h2 className="text-navy text-5xl md:text-7xl font-black tracking-tighter leading-none mb-4 ">
                                 Insight & <span className="text-secondary not-">Impact.</span>
                             </h2>
                         </FadeIn>
-                        <FadeIn direction="right" delay={0.2}>
+                        <FadeIn direction="right" delay={0.2} scale={0.95} threshold={0.3}>
                             <p className="text-slate-500 text-xl font-medium leading-relaxed">
                                 Stay informed about the issues that matter most to communities in Cameroon.
                             </p>
                         </FadeIn>
                     </div>
-                    <FadeIn direction="left">
+                    <FadeIn direction="left" scale={0.92} threshold={0.3}>
                         <Link to="/blog" className="inline-flex items-center gap-3 text-navy font-black text-xs uppercase tracking-widest group border-b-2 border-secondary pb-2">
                             View All Articles <ArrowRight className="w-4 h-4 text-secondary group-hover:translate-x-2 transition-transform" />
                         </Link>
@@ -32,7 +32,7 @@ const LatestBlog = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {latestPosts.map((post, i) => (
-                        <FadeIn key={post.id} direction="up" delay={i * 0.1} fullWidth>
+                        <FadeIn key={post.id} direction="up" delay={i * 0.1} scale={0.9} threshold={0.2} fullWidth>
                             <article className="group overflow-hidden rounded-[3rem] transition-all duration-700 flex flex-col h-full">
                                 <div className="relative h-64 overflow-hidden rounded-[3rem]">
                                     <img

@@ -19,8 +19,8 @@ const VolunteerHero = () => {
                         <span className="material-symbols-outlined text-sm">volunteer_activism</span>
                         Join Our Mission
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tighter">
-                        Make a <span className="text-secondary ">Difference</span> Today.
+                    <h1 className="text-4xl md:text-6xl leading-tight">
+                        Make a <span style={{ color: '#00BFA5' }}>Difference</span> Today.
                     </h1>
                     <p className="text-slate-200 text-lg md:text-2xl font-medium leading-relaxed max-w-2xl mx-auto ">
                         Enako Outreach relies on the passion and skills of volunteers like you to empower communities across Africa.

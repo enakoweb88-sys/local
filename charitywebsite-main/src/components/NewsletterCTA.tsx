@@ -1,48 +1,97 @@
+import { useState } from 'react';
 import { Send, Mail } from 'lucide-react';
 import FadeIn from './FadeIn';
 
 const NewsletterCTA = () => {
+    const [email, setEmail] = useState('');
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (email) setSubmitted(true);
+    };
+
     return (
-        <section className="bg-transparent py-24 px-6 md:px-12 overflow-hidden">
+        <section className="py-24 px-6 md:px-12 overflow-hidden" style={{ backgroundColor: '#001B44' }}>
             <div className="max-w-7xl mx-auto">
-                <div className="relative rounded-[3rem] bg-navy p-12 md:p-20 overflow-hidden shadow-2xl">
-                    {/* Background Detail */}
-                    <div className="absolute top-0 right-0 w-1/3 h-full bg-secondary/10 -skew-x-12 translate-x-1/2 pointer-events-none" />
+                <div
+                    className="relative overflow-hidden"
+                    style={{ backgroundColor: '#FDFBF7', borderRadius: '2.5rem', padding: '4rem 3rem' }}
+                >
+                    {/* Decorative teal blob */}
+                    <div
+                        className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-20 pointer-events-none"
+                        style={{ backgroundColor: '#00BFA5', transform: 'translate(30%, -30%)' }}
+                    />
+                    <div
+                        className="absolute bottom-0 left-0 w-48 h-48 rounded-full opacity-15 pointer-events-none"
+                        style={{ backgroundColor: '#FEF08A', transform: 'translate(-30%, 30%)' }}
+                    />
 
                     <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+                        {/* Left: Text */}
                         <div className="max-w-xl text-center lg:text-left">
                             <FadeIn direction="right">
-                                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+                                <span
+                                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-6"
+                                    style={{ backgroundColor: 'rgba(0,191,165,0.15)', color: '#00BFA5' }}
+                                >
                                     <Mail className="w-3 h-3" /> Stay Updated
                                 </span>
-                                <h2 className="text-white text-4xl md:text-6xl font-black leading-tight tracking-tighter mb-6">
-                                    Insights from the <br />
-                                    <span className="text-secondary ">Frontlines.</span>
+                                <h2 className="text-4xl md:text-5xl leading-tight mb-5" style={{ color: '#001B44' }}>
+                                    Insights from the{' '}
+                                    <span style={{ color: '#00BFA5' }}>Frontlines.</span>
                                 </h2>
-                                <p className="text-slate-400 text-lg font-medium leading-relaxed">
+                                <p className="text-lg leading-relaxed" style={{ color: '#475569' }}>
                                     Subscribe to receive our monthly impact reports, community stories, and humanitarian bulletins directly in your inbox.
                                 </p>
                             </FadeIn>
                         </div>
 
+                        {/* Right: Form */}
                         <div className="w-full max-w-md">
                             <FadeIn direction="left" delay={0.2}>
-                                <form className="relative group" onSubmit={(e) => e.preventDefault()}>
-                                    <input
-                                        type="email"
-                                        placeholder="your@email.com"
-                                        className="w-full h-20 pl-8 pr-32 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:border-secondary focus:bg-white/10 transition-all text-lg font-medium"
-                                    />
-                                    <button
-                                        type="submit"
-                                        className="absolute right-3 top-3 bottom-3 px-8 rounded-xl bg-secondary text-[#001F5B] font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-secondary/20 flex items-center gap-2"
+                                {submitted ? (
+                                    <div
+                                        className="rounded-2xl p-8 text-center"
+                                        style={{ backgroundColor: 'rgba(0,191,165,0.12)' }}
                                     >
-                                        Join <Send className="w-4 h-4" />
-                                    </button>
-                                </form>
-                                <p className="mt-4 text-[10px] font-black text-slate-500 uppercase tracking-widest text-center lg:text-left ">
-                                    * We respect your privacy. Unsubscribe anytime.
-                                </p>
+                                        <p className="text-2xl mb-2" style={{ color: '#001B44', fontFamily: '"Playfair Display", serif' }}>
+                                            Thank you! 🎉
+                                        </p>
+                                        <p className="text-sm" style={{ color: '#475569' }}>
+                                            You're now subscribed to our newsletter.
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <form onSubmit={handleSubmit} className="space-y-4">
+                                        <div className="relative">
+                                            <input
+                                                type="email"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                placeholder="your@email.com"
+                                                required
+                                                className="w-full h-16 pl-6 pr-6 text-base font-medium transition-all focus:outline-none"
+                                                style={{
+                                                    borderRadius: '9999px',
+                                                    border: '2px solid #E2E8F0',
+                                                    backgroundColor: '#fff',
+                                                    color: '#0F172A',
+                                                }}
+                                            />
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            className="btn-pill btn-pill-primary w-full justify-center text-sm"
+                                        >
+                                            Subscribe <Send className="w-4 h-4" />
+                                        </button>
+                                        <p className="text-[10px] font-bold text-center uppercase tracking-widest" style={{ color: '#94A3B8' }}>
+                                            * We respect your privacy. Unsubscribe anytime.
+                                        </p>
+                                    </form>
+                                )}
                             </FadeIn>
                         </div>
                     </div>

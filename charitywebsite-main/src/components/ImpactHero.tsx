@@ -22,9 +22,9 @@ const ImpactHero = () => {
                             <span className="size-2 rounded-full bg-secondary animate-pulse"></span>
                             Impact Report 2024
                         </div>
-                        <h1 className="text-navy dark:text-white text-4xl md:text-6xl font-black leading-[1.1] tracking-tighter">
+                        <h1 className="text-white text-4xl md:text-6xl leading-[1.1] mb-2">
                             Measuring Change. <br />
-                            <span className="text-secondary">Sharing Progress.</span>
+                            <span style={{ color: '#00BFA5' }}>Sharing Progress.</span>
                         </h1>
                         <p className="text-navy dark:text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-lg">
                             A premium humanitarian foundation dedicated to elevating education and sustainable community development across the African continent.
@@ -35,18 +35,18 @@ const ImpactHero = () => {
                 {/* Impact Stats Strip (Floating) */}
                 <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-auto">
                     <FadeIn direction="up" delay={0.2}>
-                        <div className="grid grid-cols-2 md:flex gap-8 md:gap-16 p-8 bg-white dark:bg-background-dark backdrop-blur-xl rounded-2xl shadow-2xl border border-white">
+                        <div className="grid grid-cols-2 md:flex gap-8 md:gap-16 p-8 backdrop-blur-xl rounded-2xl" style={{ backgroundColor: '#FDFBF7', border: '2px solid rgba(0,191,165,0.3)' }}>
                             <div>
-                                <p className="text-secondary text-3xl font-black">8</p>
-                                <p className="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-wider">Schools Planned</p>
+                                <p className="text-3xl font-black" style={{ color: '#00BFA5' }}>8</p>
+                                <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">Schools Planned</p>
                             </div>
-                            <div className="border-l border-slate-200 dark:border-slate-700 pl-8 md:pl-16">
-                                <p className="text-secondary text-3xl font-black">120+</p>
-                                <p className="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-wider">Students Goal</p>
+                            <div className="border-l border-slate-200 pl-8 md:pl-16">
+                                <p className="text-3xl font-black" style={{ color: '#00BFA5' }}>120+</p>
+                                <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">Students Goal</p>
                             </div>
-                            <div className="hidden md:block border-l border-slate-200 dark:border-slate-700 pl-16">
-                                <p className="text-secondary text-3xl font-black">1</p>
-                                <p className="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-wider">Nation Served</p>
+                            <div className="hidden md:block border-l border-slate-200 pl-16">
+                                <p className="text-3xl font-black" style={{ color: '#00BFA5' }}>1</p>
+                                <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">Nation Served</p>
                             </div>
                         </div>
                     </FadeIn>

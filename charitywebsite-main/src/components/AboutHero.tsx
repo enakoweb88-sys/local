@@ -8,7 +8,7 @@ const AboutHero = () => {
             {/* Full-bleed Hero */}
             <section className="relative w-full h-[75vh] min-h-[550px] flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-20">
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-navy/60 z-10" />
+                    <div className="absolute inset-0 bg-[#001B44]/70 z-10" />
                     <img
                         src="/assets/charity/our-mission.png"
                         alt="African community education"
@@ -25,9 +25,9 @@ const AboutHero = () => {
                         </div>
                     </FadeIn>
                     <FadeIn direction="up" delay={0.2}>
-                        <h1 className="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight">
+                        <h1 className="text-white text-4xl md:text-6xl leading-tight">
                             Driven by Purpose.<br />
-                            <span className="text-secondary">Guided by Impact.</span>
+                            <span style={{ color: '#00BFA5' }}>Guided by Impact.</span>
                         </h1>
                     </FadeIn>
                     <FadeIn direction="up" delay={0.3}>
@@ -76,13 +76,15 @@ const AboutHero = () => {
                         { icon: '/assets/charity/partner-with-us.png', title: 'Local Partnership', desc: 'Working directly with community leaders to design programs that address specific local needs.' },
                     ].map((item, idx) => (
                         <FadeIn key={item.title} delay={idx * 0.1} direction="up" fullWidth>
-                            <div className="bg-white p-10 rounded-[3rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)] hover:shadow-[0_50px_120px_-30px_rgba(0,194,199,0.2)] transition-all duration-700 group border-2 border-transparent hover:border-secondary flex flex-col gap-8 h-full relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl group-hover:bg-secondary/15 transition-colors" />
-                                <div className="w-20 h-20 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500 shadow-inner">
+                            <div
+                                className="p-10 hover:-translate-y-2 transition-all duration-500 group border border-transparent hover:border-[#00BFA5] flex flex-col gap-8 h-full relative overflow-hidden"
+                                style={{ backgroundColor: '#FDFBF7', borderRadius: '2.5rem' }}
+                            >
+                                <div className="w-20 h-20 rounded-2xl flex items-center justify-center" style={{ backgroundColor: 'rgba(0,191,165,0.12)' }}>
                                     <img src={item.icon} alt={item.title} className="w-10 h-10 object-contain" />
                                 </div>
                                 <div className="space-y-4 relative z-10">
-                                    <h5 className="text-2xl font-black text-navy tracking-tight ">{item.title}</h5>
+                                    <h3 className="text-2xl" style={{ color: '#001B44' }}>{item.title}</h3>
                                     <p className="text-slate-500 font-medium leading-relaxed">{item.desc}</p>
                                 </div>
                             </div>

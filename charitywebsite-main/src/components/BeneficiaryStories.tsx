@@ -37,16 +37,16 @@ const BeneficiaryStories = () => {
     const story = stories[current];
 
     return (
-        <section className="py-24 px-6 md:px-16 bg-transparent overflow-hidden">
+        <section className="py-24 px-6 md:px-16 overflow-hidden" style={{ backgroundColor: '#FDFBF7' }}>
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <FadeIn direction="up">
                     <div className="text-center mb-16">
-                        <span className="text-secondary font-black uppercase tracking-[0.4em] text-[10px] block mb-4">Human Stories</span>
-                        <h2 className="text-navy text-4xl md:text-5xl font-black tracking-tight leading-tight">
-                            Voices of <span className="text-secondary ">Transformation.</span>
-                        </h2>
-                    </div>
+                                <span className="font-black uppercase tracking-[0.4em] text-[10px] block mb-4" style={{ color: '#001F5B' }}>Human Stories</span>
+                                <h2 className="text-4xl md:text-5xl leading-tight" style={{ color: '#001B44' }}>
+                                    Voices of <span style={{ color: '#00BFA5' }}>Transformation.</span>
+                                </h2>
+                            </div>
                 </FadeIn>
 
                 {/* Story card — split layout like the partner reference */}
@@ -94,9 +94,9 @@ const BeneficiaryStories = () => {
 
                                 <Link
                                     to="/stories"
-                                    className="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-white font-black text-sm uppercase tracking-widest rounded-2xl hover:bg-[#00a8ae] hover:scale-105 transition-all"
+                                    className="btn-pill btn-pill-primary text-sm"
                                 >
-                                    Learn More
+                                    Read More Stories
                                 </Link>
                             </div>
                         </motion.div>
@@ -104,17 +104,20 @@ const BeneficiaryStories = () => {
 
                     {/* Pagination dots */}
                     <div className="flex items-center justify-center gap-3 mt-12">
-                        <button onClick={prev} className="w-10 h-10 rounded-full border-2 border-secondary flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                        <button onClick={prev} className="w-10 h-10 rounded-full flex items-center justify-center transition-all" style={{ border: '2px solid #001B44', color: '#001B44' }}>
                             <ChevronLeft className="w-4 h-4" />
                         </button>
                         {stories.map((_, i) => (
                             <button
                                 key={i}
                                 onClick={() => setCurrent(i)}
-                                className={`transition-all duration-300 rounded-full ${i === current ? 'w-8 h-3 bg-secondary' : 'w-3 h-3 bg-slate-200'}`}
+                                className="transition-all duration-300 rounded-full"
+                                style={i === current
+                                    ? { width: '2rem', height: '0.75rem', backgroundColor: '#00BFA5' }
+                                    : { width: '0.75rem', height: '0.75rem', backgroundColor: '#CBD5E1' }}
                             />
                         ))}
-                        <button onClick={next} className="w-10 h-10 rounded-full border-2 border-secondary flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                        <button onClick={next} className="w-10 h-10 rounded-full flex items-center justify-center transition-all" style={{ border: '2px solid #001B44', color: '#001B44' }}>
                             <ChevronRight className="w-4 h-4" />
                         </button>
                     </div>

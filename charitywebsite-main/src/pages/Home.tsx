@@ -110,10 +110,10 @@ const Home = () => {
                     <PremiumHeroCarousel />
 
                     {/* 2. Our Mission */}
-                    <section className="py-24 bg-white">
+                    <section className="py-24" style={{ backgroundColor: '#FDFBF7' }}>
                         <div className="max-w-7xl mx-auto px-6 md:px-12">
                             <div className="grid lg:grid-cols-2 gap-16 items-center">
-                                <FadeIn direction="right">
+                    <FadeIn direction="right" scale={0.96} threshold={0.3}>
                                     <span className="text-green-600 font-bold text-xs uppercase tracking-widest block mb-3">Our Mission</span>
                                     <h2 className="text-slate-900 font-black text-4xl md:text-5xl leading-tight mb-6">
                                         Transforming Lives Across
@@ -123,25 +123,29 @@ const Home = () => {
                                         Enako Outreach is a registered humanitarian NGO dedicated to empowering communities across Cameroon. We work at the grassroots level — partnering with local leaders, schools, and health workers to deliver targeted, sustainable programmes where they matter most.
                                     </p>
                                     <div className="flex flex-wrap gap-3 mb-8">
-                                        {['Education', 'Healthcare', 'Clean Water', 'Women Empowerment', 'Youth', 'Emergency Relief'].map((tag) => (
-                                            <span key={tag} className="px-4 py-1.5 bg-green-50 text-slate-900 text-xs font-bold rounded-full border border-slate-200">
-                                                {tag}
-                                            </span>
+                                        {['Education', 'Healthcare', 'Clean Water', 'Women Empowerment', 'Youth', 'Emergency Relief'].map((tag, i) => (
+                                            <FadeIn key={tag} delay={i * 0.05} direction="up" scale={0.8} threshold={0.5}>
+                                                <span className="px-4 py-1.5 bg-green-50 text-slate-900 text-xs font-bold rounded-full border border-slate-200">
+                                                    {tag}
+                                                </span>
+                                            </FadeIn>
                                         ))}
                                     </div>
                                     <Link to="/about" className="inline-flex items-center gap-2 text-green-600 font-bold hover:gap-4 transition-all">
                                         Learn About Our Work <ArrowRight className="w-4 h-4" />
                                     </Link>
                                 </FadeIn>
-                                <FadeIn direction="left">
+                                <FadeIn direction="right" scale={0.95}>
                                     <div className="grid grid-cols-2 gap-4">
                                         {missionPoints.map((item, i) => (
-                                            <motion.div key={i} whileHover={{ y: -3 }}
-                                                className="p-6 transition-all duration-300">
-                                                <img src={item.icon} alt={item.label} className="w-32 h-32 object-contain mb-4" />
-                                                <h4 className="font-black text-slate-900 text-2xl mb-2">{item.label}</h4>
-                                                <p className="text-slate-600 text-base leading-relaxed">{item.desc}</p>
-                                            </motion.div>
+                                            <FadeIn key={i} delay={i * 0.1} scale={0.9} direction={i % 2 === 0 ? 'right' : 'left'}>
+                                                <motion.div whileHover={{ y: -5, scale: 1.02 }} transition={{ duration: 0.3 }}
+                                                    className="p-6 transition-all duration-300">
+                                                    <img src={item.icon} alt={item.label} className="w-32 h-32 object-contain mb-4" />
+                                                    <h4 className="font-black text-slate-900 text-2xl mb-2">{item.label}</h4>
+                                                    <p className="text-slate-600 text-base leading-relaxed">{item.desc}</p>
+                                                </motion.div>
+                                            </FadeIn>
                                         ))}
                                     </div>
                                 </FadeIn>
@@ -150,17 +154,17 @@ const Home = () => {
                     </section>
 
                     {/* 3. CTA Action Cards */}
-                    <section className="py-16 bg-gradient-to-br from-secondary/10 to-secondary/5">
+                    <section className="py-16 bg-white">
                         <div className="max-w-7xl mx-auto px-6 md:px-12">
-                            <FadeIn direction="up" className="text-center mb-12">
+                            <FadeIn direction="up" scale={0.92} threshold={0.3} className="text-center mb-12">
                                 <h2 className="text-slate-900 font-black text-3xl md:text-4xl mb-3">How Can We Help You?</h2>
                                 <p className="text-slate-600 text-lg">Take action — whether you need assistance or want to give it.</p>
                             </FadeIn>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {ctaCards.map((card, i) => (
-                                    <FadeIn key={card.title} direction="up" delay={i * 0.08}>
+                                    <FadeIn key={card.title} direction="up" delay={i * 0.1} scale={0.9} threshold={0.2}>
                                         <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
-                                            <Link to={card.to} className="no-underline relative block group h-[360px] overflow-hidden">
+                                            <Link to={card.to} className="no-underline relative block group h-[360px] overflow-hidden" style={{ borderRadius: '2rem' }}>
                                                 <img
                                                     src={card.image}
                                                     alt={card.title}
@@ -189,10 +193,10 @@ const Home = () => {
                     <ImpactDashboard />
 
                     {/* 6. Cameroon Mapping Journey Video */}
-                    <section className="py-24 bg-white">
+                    <section className="py-24" style={{ backgroundColor: '#FDFBF7' }}>
                         <div className="max-w-7xl mx-auto px-6 md:px-12">
                             <div className="grid lg:grid-cols-2 gap-12 items-center">
-                                <FadeIn direction="right">
+                                <FadeIn direction="right" scale={0.95} threshold={0.3}>
                                     <span className="text-green-600 font-bold text-xs uppercase tracking-widest block mb-3">Regional Mapping</span>
                                     <h2 className="text-slate-900 font-black text-4xl md:text-5xl mb-4">
                                         Following the Route
@@ -206,16 +210,18 @@ const Home = () => {
                                             'Shows key places connected by one outreach route.',
                                             'Complements the regional map below for deeper exploration.',
                                             'Helps donors and partners quickly understand geographic reach.',
-                                        ].map((point) => (
-                                            <div key={point} className="flex items-start gap-3">
-                                                <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                                                <p className="text-slate-600 text-sm leading-relaxed">{point}</p>
-                                            </div>
+                                        ].map((point, i) => (
+                                            <FadeIn key={point} delay={0.2 + (i * 0.1)} direction="left" scale={0.8} threshold={0.8}>
+                                                <div className="flex items-start gap-3">
+                                                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                                                    <p className="text-slate-600 text-sm leading-relaxed">{point}</p>
+                                                </div>
+                                            </FadeIn>
                                         ))}
                                     </div>
                                 </FadeIn>
 
-                                <FadeIn direction="left">
+                                <FadeIn direction="left" scale={0.9} threshold={0.2}>
                                     <div className="relative overflow-hidden rounded-3xl border border-slate-200 shadow-xl bg-slate-950">
                                         <video
                                             autoPlay
@@ -237,10 +243,10 @@ const Home = () => {
                     </section>
 
                     {/* 7. Focus Communities Map Preview */}
-                    <section className="py-24 bg-slate-50">
+                    <section className="py-24 bg-white">
                         <div className="max-w-7xl mx-auto px-6 md:px-12">
                             <div className="grid lg:grid-cols-2 gap-14 items-center">
-                                <FadeIn direction="right">
+                                <FadeIn direction="right" scale={0.95} threshold={0.3}>
                                     <span className="text-green-600 font-bold text-xs uppercase tracking-widest block mb-3">Where We Work</span>
                                     <h2 className="text-slate-900 font-black text-4xl md:text-5xl mb-4">
                                         Focus Communities
@@ -256,21 +262,23 @@ const Home = () => {
                                             { region: 'North West (Bamenda)', work: 'Emergency Relief, Women Support' },
                                             { region: 'South West (Buea)', work: 'Emergency Relief, Clean Water' },
                                             { region: 'West (Bafoussam)', work: 'Women Empowerment, Healthcare' },
-                                        ].map((r) => (
-                                            <div key={r.region} className="flex items-start gap-3">
-                                                <MapPin className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                                                <div>
-                                                    <span className="font-bold text-slate-900 text-sm">{r.region} — </span>
-                                                    <span className="text-slate-500 text-sm">{r.work}</span>
+                                        ].map((r, i) => (
+                                            <FadeIn key={r.region} delay={0.2 + (i * 0.1)} direction="right" scale={0.9} threshold={0.8}>
+                                                <div className="flex items-start gap-3">
+                                                    <MapPin className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                                                    <div>
+                                                        <span className="font-bold text-slate-900 text-sm">{r.region} — </span>
+                                                        <span className="text-slate-500 text-sm">{r.work}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </FadeIn>
                                         ))}
                                     </div>
                                     <Link to="/focus-communities" className="inline-flex items-center gap-2 bg-green-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-green-700 transition-colors">
                                         Explore All Regions <ArrowRight className="w-4 h-4" />
                                     </Link>
                                 </FadeIn>
-                                <FadeIn direction="left">
+                                <FadeIn direction="left" scale={0.9} threshold={0.2}>
                                     <CameroonMap />
                                 </FadeIn>
                             </div>
@@ -278,12 +286,12 @@ const Home = () => {
                     </section>
 
                     {/* 8. Success Stories */}
-                    <section className="py-24 bg-white">
+                    <section className="py-24" style={{ backgroundColor: '#001B44' }}>
                         <div className="max-w-7xl mx-auto px-6 md:px-12">
                             <FadeIn direction="up" className="text-center mb-14">
-                                <span className="text-green-600 font-bold text-xs uppercase tracking-widest block mb-3">Real Impact</span>
-                                <h2 className="text-slate-900 font-black text-4xl md:text-5xl mb-4">Community Reviews</h2>
-                                <p className="text-slate-500 text-xl max-w-2xl mx-auto">
+                                <span className="font-bold text-xs uppercase tracking-widest block mb-3" style={{ color: '#00BFA5' }}>Real Impact</span>
+                                <h2 className="text-white text-4xl md:text-5xl mb-4">Community Reviews</h2>
+                                <p className="text-slate-400 text-xl max-w-2xl mx-auto">
                                     Behind every statistic is a real person whose life has been transformed by your support.
                                 </p>
                             </FadeIn>
@@ -293,35 +301,38 @@ const Home = () => {
                                         src={successStories[activeStory].image}
                                         alt={successStories[activeStory].name}
                                         className="w-full h-[420px] object-cover"
+                                        style={{ borderRadius: '2.5rem' }}
                                     />
                                 </FadeIn>
-                                <FadeIn direction="left">
+                                <FadeIn direction="left" scale={0.92} threshold={0.2}>
                                     <div>
-                                        <p className="text-[#00C2C7] text-xs font-black uppercase tracking-widest mb-3">
+                                        <p className="text-xs font-black uppercase tracking-widest mb-3" style={{ color: '#00BFA5' }}>
                                             {successStories[activeStory].program}
                                         </p>
-                                        <h3 className="text-slate-900 font-black text-3xl mb-2">{successStories[activeStory].name}</h3>
-                                        <p className="text-slate-500 text-sm mb-4 flex items-center gap-2">
+                                        <h3 className="text-white text-3xl mb-2">{successStories[activeStory].name}</h3>
+                                        <p className="text-slate-400 text-sm mb-4 flex items-center gap-2">
                                             <MapPin className="w-4 h-4" />
                                             {successStories[activeStory].region}
                                         </p>
-                                        <p className="text-slate-700 text-lg leading-relaxed mb-6">"{successStories[activeStory].quote}"</p>
+                                        <p className="text-slate-300 text-lg leading-relaxed mb-6">"{successStories[activeStory].quote}"</p>
                                         <div className="flex items-center gap-2">
                                             {successStories.map((story, i) => (
-                                                <button
-                                                    key={story.name}
-                                                    type="button"
-                                                    onClick={() => setActiveStory(i)}
-                                                    className={`h-2.5 transition-all ${i === activeStory ? 'w-10 bg-[#00C2C7]' : 'w-4 bg-slate-300'}`}
-                                                    aria-label={`Show story ${i + 1}`}
-                                                />
+                                                <FadeIn key={story.name} delay={0.1 * i} direction="right" scale={0.5} threshold={0.9}>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setActiveStory(i)}
+                                                        className={`h-2.5 rounded-full transition-all ${i === activeStory ? 'w-10' : 'w-4 bg-white/30'}`}
+                                                        style={i === activeStory ? { backgroundColor: '#00BFA5', width: '2.5rem' } : {}}
+                                                        aria-label={`Show story ${i + 1}`}
+                                                    />
+                                                </FadeIn>
                                             ))}
                                         </div>
                                     </div>
                                 </FadeIn>
                             </div>
                             <div className="text-center">
-                                <Link to="/stories" className="inline-flex items-center gap-2 text-green-600 font-bold hover:gap-4 transition-all">
+                                <Link to="/stories" className="btn-pill btn-pill-teal text-sm">
                                     Read More Stories <ArrowRight className="w-4 h-4" />
                                 </Link>
                             </div>
@@ -335,19 +346,25 @@ const Home = () => {
                     <LatestBlog />
 
                     {/* 11. Donation CTA Section */}
-                    <section className="py-24 relative overflow-hidden bg-center bg-cover" style={{ backgroundImage: `url('/assets/charity/Your Donation Changes Real Lives.png')` }}>
-                        <div className="absolute inset-0 bg-black/30" />
+                    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#00BFA5' }}>
+                        {/* Dot grid overlay */}
+                        <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
+                            style={{ backgroundImage: 'radial-gradient(circle, #001B44 1.5px, transparent 1.5px)', backgroundSize: '36px 36px' }} />
                         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                             <FadeIn direction="up">
-                                <h2 className="text-white font-black text-4xl md:text-6xl mb-6">
+                                <span className="text-xs font-bold uppercase tracking-[0.3em] block mb-4" style={{ color: '#001B44', opacity: 0.65 }}>Make A Difference</span>
+                                <h2 className="text-4xl md:text-6xl mb-4" style={{ color: '#001B44' }}>
                                     Your Donation Changes
-                                    <span className="block text-white">Real Lives</span>
+                                    <span className="block">Real Lives</span>
                                 </h2>
+                                <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'rgba(0,27,68,0.7)' }}>
+                                    Every contribution funds education, clean water, and healthcare for families across Cameroon.
+                                </p>
                                 <div className="flex flex-wrap gap-4 justify-center">
-                                    <Link to="/donate" className="no-underline flex items-center gap-2 bg-green-600 text-white font-bold px-10 py-4 rounded-xl hover:bg-green-700 transition-all hover:scale-105 text-lg">
+                                    <Link to="/donate" className="btn-pill btn-pill-primary text-base">
                                         <Heart className="w-5 h-5" /> Donate Now
                                     </Link>
-                                    <Link to="/partnership" className="no-underline flex items-center gap-2 border-2 border-white/30 text-white font-bold px-10 py-4 rounded-xl hover:bg-white/10 transition-colors text-lg">
+                                    <Link to="/partnership" className="btn-pill text-base" style={{ border: '2px solid rgba(0,27,68,0.35)', color: '#001B44', borderRadius: '9999px', padding: '1rem 2.25rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                                         Partner With Us <ArrowRight className="w-5 h-5" />
                                     </Link>
                                 </div>

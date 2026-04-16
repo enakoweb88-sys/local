@@ -28,12 +28,12 @@ const ImpactDashboard: React.FC = () => {
     ];
 
     return (
-        <section className="py-24 px-6 md:px-16 bg-transparent overflow-hidden relative">
+        <section className="py-24 px-6 md:px-16 overflow-hidden relative" style={{ backgroundColor: '#FDFBF7' }}>
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
                     {/* LEFT — Text + Stats */}
-                    <FadeIn direction="right">
+                    <FadeIn direction="right" scale={0.94} threshold={0.3}>
                         <div>
                             <div className="flex items-center gap-2 mb-5">
                                 <span className="w-2 h-2 rounded-full bg-secondary inline-block" />
@@ -53,32 +53,33 @@ const ImpactDashboard: React.FC = () => {
 
                             <div className="space-y-7">
                                 {metrics.map((m, i) => (
-                                    <motion.div
+                                    <FadeIn
                                         key={m.label}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: i * 0.12 }}
+                                        direction="right"
+                                        delay={i * 0.12}
+                                        scale={0.95}
+                                        threshold={0.5}
                                     >
                                         <div className="flex justify-between items-center mb-2">
                                             <span className="text-navy font-bold text-sm">{m.label}</span>
                                             <span className="text-secondary font-black text-sm">{m.pct}%</span>
                                         </div>
                                         <AnimatedBar pct={m.pct} />
-                                    </motion.div>
+                                    </FadeIn>
                                 ))}
                             </div>
 
                             <div className="mt-10 flex flex-wrap gap-4">
                                 <Link
                                     to="/impact"
-                                    className="px-8 py-4 bg-secondary text-white font-black text-sm uppercase tracking-widest rounded-2xl hover:bg-[#00a8ae] hover:scale-105 transition-all"
+                                    className="btn-pill btn-pill-primary text-sm"
                                 >
                                     View Full Report
                                 </Link>
                                 <Link
                                     to="/volunteer"
-                                    className="px-8 py-4 border-2 border-secondary text-secondary font-black text-sm uppercase tracking-widest rounded-2xl hover:bg-secondary hover:text-white transition-all"
+                                    className="btn-pill text-sm"
+                                    style={{ border: '2px solid #001F5B', color: '#001F5B', borderRadius: '9999px', padding: '1rem 2rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
                                 >
                                     Get Involved
                                 </Link>
@@ -87,13 +88,13 @@ const ImpactDashboard: React.FC = () => {
                     </FadeIn>
 
                     {/* RIGHT — circular photo + accent shape */}
-                    <FadeIn direction="left" delay={0.2}>
+                    <FadeIn direction="left" delay={0.2} scale={0.9} threshold={0.2}>
                         <div className="relative flex items-center justify-center">
                             {/* Blue accent shape bottom-right */}
                             <div className="absolute bottom-0 right-0 w-48 h-48 bg-secondary rounded-tl-[80px] rounded-br-[16px] z-0 translate-x-8 translate-y-8 opacity-20" />
 
-                            {/* Circular image */}
-                            <div className="relative z-10 w-[340px] h-[340px] md:w-[420px] md:h-[420px] rounded-full overflow-hidden">
+                            {/* Circular image with teal ring */}
+                            <div className="relative z-10 w-[340px] h-[340px] md:w-[420px] md:h-[420px] rounded-full overflow-hidden" style={{ boxShadow: '0 0 0 8px #00BFA5, 0 0 0 12px rgba(0,191,165,0.2)' }}>
                                 <img
                                     src="/assets/charity/our-expertize-in-action.png"
                                     alt="Cameroonian children in school"
@@ -108,19 +109,21 @@ const ImpactDashboard: React.FC = () => {
                             <motion.div
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-                                className="absolute top-8 -left-4 md:-left-12 rounded-3xl px-6 py-4 z-20"
+                                className="absolute top-8 -left-4 md:-left-12 rounded-2xl px-6 py-4 z-20"
+                                style={{ backgroundColor: '#00BFA5' }}
                             >
-                                <p className="text-secondary text-3xl font-black tracking-tighter">120+</p>
-                                <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest">Beneficiaries Target</p>
+                                <p className="text-[#001B44] text-3xl font-black tracking-tighter">120+</p>
+                                <p className="text-[#001B44]/70 text-[10px] font-black uppercase tracking-widest">Beneficiaries Target</p>
                             </motion.div>
 
                             <motion.div
                                 animate={{ y: [0, 10, 0] }}
                                 transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}
-                                className="absolute bottom-16 -right-4 md:-right-10 rounded-3xl px-6 py-4 z-20"
+                                className="absolute bottom-16 -right-4 md:-right-10 rounded-2xl px-6 py-4 z-20"
+                                style={{ backgroundColor: '#FEF08A' }}
                             >
-                                <p className="text-white text-3xl font-black tracking-tighter">4</p>
-                                <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest">Partner Schools</p>
+                                <p className="text-[#713F12] text-3xl font-black tracking-tighter">4</p>
+                                <p className="text-[#713F12]/70 text-[10px] font-black uppercase tracking-widest">Partner Schools</p>
                             </motion.div>
                         </div>
                     </FadeIn>

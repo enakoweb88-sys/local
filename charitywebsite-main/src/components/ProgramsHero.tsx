@@ -24,9 +24,9 @@ const ProgramsHero = () => {
                             <span className="material-symbols-outlined text-sm">chevron_right</span>
                             <span className="text-white font-medium">Programs</span>
                         </nav>
-                        <h1 className="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-6">
+                        <h1 className="text-white text-4xl md:text-6xl leading-tight mb-6">
                             Our Programs<br />
-                            Creating <span className="text-secondary ">Lasting</span><br />
+                            Creating <span style={{ color: '#00BFA5' }}>Lasting</span><br />
                             Impact
                         </h1>
                     </FadeIn>
@@ -58,11 +58,14 @@ const ProgramsHero = () => {
                             { icon: 'child_care', title: 'Orphanage Support', desc: 'Providing a safe haven, nutritional support, and emotional care for children in need.' },
                         ].map((p, idx) => (
                             <FadeIn key={p.title} direction="up" delay={idx * 0.1} fullWidth>
-                                <div className="bg-slate-50 rounded-xl p-8 border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all group h-full">
-                                    <div className="w-12 h-12 bg-white border border-secondary rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors">
-                                        <span className="material-symbols-outlined text-secondary text-2xl group-hover:text-white">{p.icon}</span>
+                                <div
+                                    className="p-8 hover:-translate-y-1 transition-all group h-full"
+                                    style={{ backgroundColor: '#FDFBF7', borderRadius: '2rem' }}
+                                >
+                                    <div className="w-12 h-12 flex items-center justify-center mb-6 rounded-xl" style={{ backgroundColor: 'rgba(0,191,165,0.12)' }}>
+                                        <span className="material-symbols-outlined text-2xl" style={{ color: '#00BFA5' }}>{p.icon}</span>
                                     </div>
-                                    <h3 className="text-navy text-lg font-bold mb-3">{p.title}</h3>
+                                    <h3 className="text-lg mb-3" style={{ color: '#001B44' }}>{p.title}</h3>
                                     <p className="text-slate-500 text-sm leading-relaxed">{p.desc}</p>
                                 </div>
                             </FadeIn>

@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-    /* === New Brand Colors — Navy & Teal Palette === */
+    /* === Brand Colors — Navy & Teal Palette === */
     --color-primary: #001F5B;
     --color-primary-dark: #000D26;
     --color-primary-light: #1E4A89;
@@ -25,9 +26,18 @@
     --radius-premium: 2.5rem;
     --radius-super: 4rem;
 
-    /* Typography: Poppins */
-    --font-display: "Poppins", sans-serif;
+    /* Typography: Playfair Display (headings) + Poppins (body) */
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-serif: "Playfair Display", Georgia, serif;
     --font-sans: "Poppins", sans-serif;
+
+    /* === Warm Palette (Wix-inspired) === */
+    --color-warm-cream: #FDFBF7;
+    --color-warm-yellow: #FEF08A;
+    --color-soft-green: #BBF7D0;
+    --color-soft-purple: #E9D5FF;
+    --color-soft-peach: #FED7AA;
+    --color-wix-teal: #00BFA5;
 
     /* Slate scale */
     --color-slate-50: #F8FAFC;
@@ -42,7 +52,7 @@
     --color-slate-900: #0F172A;
     --color-slate-950: #020617;
 
-    /* Map green overrides for Tailwind -> map green tokens to Navy theme where appropriate */
+    /* Map green overrides -> Navy theme */
     --color-green-400: #001F5B;
     --color-green-500: #001F5B;
     --color-green-600: #001F5B;
@@ -57,7 +67,7 @@ html {
 }
 
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Playfair Display", Georgia, serif;
     background-color: #FFFFFF;
     color: #0f172a;
     -webkit-font-smoothing: antialiased;
@@ -66,7 +76,6 @@ body {
     width: 100%;
 }
 
-/* Keep layout stable when Google Translate is active */
 body {
     top: 0 !important;
 }
@@ -83,13 +92,14 @@ body {
     overflow: hidden;
 }
 
-/* === GLOBAL: Remove ALL italics from headings sitewide === */
+/* === GLOBAL TYPOGRAPHY: All headings use Playfair Display === */
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Poppins", sans-serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-style: normal !important;
+    letter-spacing: -0.01em;
 }
 
-/* Also kill italic utility classes on headings */
+/* Kill italic utility classes on headings */
 h1.italic, h2.italic, h3.italic, h4.italic, h5.italic, h6.italic,
 h1 .italic, h2 .italic, h3 .italic, h4 .italic, h5 .italic, h6 .italic {
     font-style: normal !important;
@@ -97,7 +107,7 @@ h1 .italic, h2 .italic, h3 .italic, h4 .italic, h5 .italic, h6 .italic {
 
 /* === Links & Buttons base === */
 a, button {
-    font-family: "Poppins", sans-serif;
+    font-family: "Playfair Display", Georgia, serif;
 }
 
 /* === Material Symbols === */
@@ -116,6 +126,11 @@ a, button {
     font-style: normal !important;
 }
 
+/* === Heading serif helper class === */
+.font-serif-display {
+    font-family: "Playfair Display", Georgia, serif !important;
+}
+
 /* === Custom scrollbar === */
 ::-webkit-scrollbar {
     width: 6px;
@@ -128,7 +143,7 @@ a, button {
     border-radius: 3px;
 }
 
-/* Keep green utility classes aligned with New Brand Navy & Teal */
+/* Keep green utility classes aligned with Navy theme */
 [class*="text-green"], .text-green-600, .text-green-700 {
     color: #001F5B !important;
 }
@@ -148,6 +163,68 @@ button,
 [type="button"],
 [type="submit"] {
     text-decoration: none !important;
+}
+
+/* ===================================================
+   SECTION BACKGROUND HELPERS (Wix-inspired palette)
+=================================================== */
+.section-cream       { background-color: #FDFBF7; }
+.section-yellow      { background-color: #FEF08A; }
+.section-soft-green  { background-color: #BBF7D0; }
+.section-purple      { background-color: #E9D5FF; }
+.section-peach       { background-color: #FED7AA; }
+.section-teal        { background-color: #00BFA5; }
+.section-navy        { background-color: #001B44; }
+
+/* === Pill Button Helpers === */
+.btn-pill {
+    border-radius: 9999px !important;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none !important;
+    white-space: nowrap;
+}
+.btn-pill-primary {
+    background-color: #001B44;
+    color: #ffffff;
+}
+.btn-pill-primary:hover {
+    background-color: #002060;
+    transform: scale(1.03);
+}
+.btn-pill-outline {
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    background: transparent;
+}
+.btn-pill-outline:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+.btn-pill-teal {
+    background-color: #00BFA5;
+    color: #001B44;
+}
+.btn-pill-teal:hover {
+    background-color: #00a896;
+    transform: scale(1.03);
+}
+.btn-pill-white {
+    background-color: #ffffff;
+    color: #001B44;
+}
+.btn-pill-white:hover {
+    background-color: #f0f4ff;
+    transform: scale(1.03);
 }
 
 /* WhatsApp pulse accent */
@@ -181,15 +258,11 @@ button,
 }
 
 /* === CameroonMap: restore original greens inside the map component === */
-/* The site-wide 'green' utilities are mapped to Royal Gold; we need
-   the Cameroon map region to keep the original green palette for
-   readability and semantic consistency. Scope specific class
-   overrides under `.cameroon-preserve`. */
 .cameroon-preserve [class*="bg-green"], .cameroon-preserve [class*="from-green"], .cameroon-preserve [class*="to-green"], .cameroon-preserve [class*="via-green"] {
     background-image: none !important;
 }
 .cameroon-preserve [class*="text-green"], .cameroon-preserve .text-green-600, .cameroon-preserve .text-green-700 {
-    color: #16A34A !important; /* Tailwind green-600 / readable green */
+    color: #16A34A !important;
 }
 .cameroon-preserve .text-green-700 { color: #15803D !important; }
 .cameroon-preserve .bg-green-50 { background-color: #F0FDF4 !important; }
@@ -199,7 +272,7 @@ button,
 .cameroon-preserve .border-green-100 { border-color: #DCFCE7 !important; }
 .cameroon-preserve .border-green-200 { border-color: #BBF7D0 !important; }
 
-/* Re-enable rounded corners inside the Cameroon map area so the map visuals remain intact */
+/* Re-enable rounded corners inside the Cameroon map area */
 .cameroon-preserve [class*="rounded"], .cameroon-preserve .rounded-full, .cameroon-preserve .rounded-2xl, .cameroon-preserve .rounded-3xl, .cameroon-preserve .rounded-xl {
     border-radius: revert !important;
 }

@@ -64,7 +64,7 @@ const Footer = () => {
                         </div>
 
                         {/* Socials */}
-                        <div className="flex gap-3 pt-2">
+                        <div className="flex gap-4 pt-2">
                             {[
                                 { src: '/assets/charity/social/facebook.png', href: '#', label: 'Facebook' },
                                 { src: '/assets/charity/social/instagram.png', href: '#', label: 'Instagram' },
@@ -75,9 +75,9 @@ const Footer = () => {
                                     key={s.label}
                                     href={s.href}
                                     aria-label={s.label}
-                                    className="w-10 h-10 rounded-full bg-[#001B44]/10 hover:bg-[#001B44]/20 transition-colors flex items-center justify-center"
+                                    className="hover:-translate-y-1 transition-transform"
                                 >
-                                    <img src={s.src} alt={s.label} className="w-5 h-5 object-contain" />
+                                    <img src={s.src} alt={s.label} className="w-8 h-8 object-contain hover:opacity-80 transition-opacity" />
                                 </a>
                             ))}
                         </div>

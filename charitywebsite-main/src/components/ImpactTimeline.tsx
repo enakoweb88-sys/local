@@ -62,7 +62,7 @@ const ImpactTimeline = () => {
                                         <span className="material-symbols-outlined text-secondary text-2xl">{milestone.icon}</span>
                                     </div>
                                     <div className={`flex-1 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16'} hidden md:block`}>
-                                        <div className="w-full h-48 rounded-2xl bg-slate-800 overflow-hidden shadow-lg group">
+                                        <div className="w-full h-48 rounded-[2.5rem] bg-slate-800 overflow-hidden shadow-lg group">
                                             <img
                                                 alt={milestone.title}
                                                 className="w-full h-full object-cover  group-hover: group-hover:scale-105 transition-all duration-500"

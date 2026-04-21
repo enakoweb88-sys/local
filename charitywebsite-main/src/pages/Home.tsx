@@ -301,7 +301,7 @@ const Home = () => {
                                         src={successStories[activeStory].image}
                                         alt={successStories[activeStory].name}
                                         className="w-full h-[420px] object-cover"
-                                        style={{ borderRadius: '2.5rem' }}
+                                        style={{ borderRadius: '60% 40% 50% 70%/60% 30% 70% 40%' }}
                                     />
                                 </FadeIn>
                                 <FadeIn direction="left" scale={0.92} threshold={0.2}>
@@ -314,7 +314,7 @@ const Home = () => {
                                             <MapPin className="w-4 h-4" />
                                             {successStories[activeStory].region}
                                         </p>
-                                        <p className="text-slate-300 text-lg leading-relaxed mb-6">"{successStories[activeStory].quote}"</p>
+                                        <p className="text-slate-300 text-lg leading-relaxed mb-6 min-h-[160px] md:min-h-[120px]">"{successStories[activeStory].quote}"</p>
                                         <div className="flex items-center gap-2">
                                             {successStories.map((story, i) => (
                                                 <FadeIn key={story.name} delay={0.1 * i} direction="right" scale={0.5} threshold={0.9}>

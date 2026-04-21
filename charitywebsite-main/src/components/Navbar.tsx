@@ -285,17 +285,17 @@ const Navbar = () => {
 
                         {/* Right: Donate + Hamburger */}
                         <div className="flex items-center gap-4">
-                            <div className="hidden md:flex xl:hidden items-center gap-2">
-                                <Link to="/contact" className="px-4 py-2 text-xs font-bold text-[#001F5B] border border-slate-200 rounded-full hover:border-[#00BFA5] hover:text-[#00BFA5] transition-colors">
+                            <div className="hidden md:flex xl:hidden items-center gap-2 flex-shrink-0">
+                                <Link to="/contact" className="px-4 py-2 text-xs font-bold text-[#001F5B] border border-slate-200 rounded-full hover:border-[#00BFA5] hover:text-[#00BFA5] transition-colors whitespace-nowrap">
                                     Contact Us
                                 </Link>
-                                <Link to="/donate" className="px-4 py-2 text-xs font-bold text-white rounded-full shadow-md hover:shadow-lg transition-all" style={{ backgroundColor: '#00C2C7' }}>
+                                <Link to="/donate" className="px-4 py-2 text-xs font-bold text-white rounded-full shadow-md hover:shadow-lg transition-all whitespace-nowrap" style={{ backgroundColor: '#00C2C7' }}>
                                     Donate
                                 </Link>
                             </div>
                             <Link
                                 to="/donate"
-                                className="hidden xl:inline-flex items-center gap-2 px-7 py-3 font-bold text-sm tracking-wide transition-all duration-300 text-white rounded-full hover:opacity-90"
+                                className="hidden xl:inline-flex items-center gap-2 px-7 py-3 font-bold text-sm tracking-wide transition-all duration-300 text-white rounded-full hover:opacity-90 whitespace-nowrap flex-shrink-0"
                                 style={{ backgroundColor: '#00C2C7' }}
                             >
                                 Donate Now

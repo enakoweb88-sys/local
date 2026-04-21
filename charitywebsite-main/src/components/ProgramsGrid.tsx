@@ -108,49 +108,50 @@ const ProgramsGrid = () => {
                                         backgroundColor: program.bg,
                                         borderRadius: '2.5rem',
                                         minHeight: '360px',
-                                        padding: '2.5rem',
                                     }}
                                 >
-                                    {/* Icon */}
-                                    <div className="mb-5">
+                                    {/* Icon / Top Image */}
+                                    <div className="w-full h-48 md:h-56 mb-6">
                                         <img
                                             src={program.image}
                                             alt={program.name}
-                                            className="w-20 h-20 object-contain"
+                                            className="w-full h-full object-cover"
                                         />
                                     </div>
 
-                                    {/* Number badge */}
-                                    <span
-                                        className="text-xs font-black uppercase tracking-widest mb-4 inline-block px-3 py-1 rounded-full w-fit"
-                                        style={{ backgroundColor: program.tagBg, color: program.textColor }}
-                                    >
-                                        {program.id}
-                                    </span>
+                                    <div className="flex flex-col flex-1 px-8 pb-8">
+                                        {/* Number badge */}
+                                        <span
+                                            className="text-xs font-black uppercase tracking-widest mb-4 inline-block px-3 py-1 rounded-full w-fit"
+                                            style={{ backgroundColor: program.tagBg, color: program.textColor }}
+                                        >
+                                            {program.id}
+                                        </span>
 
-                                    {/* Heading */}
-                                    <h3
-                                        className="text-2xl md:text-3xl leading-snug mb-3"
-                                        style={{ color: program.textColor }}
-                                    >
-                                        {program.name}
-                                    </h3>
+                                        {/* Heading */}
+                                        <h3
+                                            className="text-2xl md:text-3xl leading-snug mb-3"
+                                            style={{ color: program.textColor }}
+                                        >
+                                            {program.name}
+                                        </h3>
 
-                                    {/* Description */}
-                                    <p
-                                        className="text-sm leading-relaxed mb-6 flex-1"
-                                        style={{ color: program.textColor, opacity: 0.72 }}
-                                    >
-                                        {program.desc}
-                                    </p>
+                                        {/* Description */}
+                                        <p
+                                            className="text-sm leading-relaxed mb-6 flex-1"
+                                            style={{ color: program.textColor, opacity: 0.72 }}
+                                        >
+                                            {program.desc}
+                                        </p>
 
-                                    {/* CTA link */}
-                                    <span
-                                        className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest group-hover:gap-4 transition-all duration-300"
-                                        style={{ color: program.textColor }}
-                                    >
-                                        Explore Programme <ArrowRight className="w-3.5 h-3.5" />
-                                    </span>
+                                        {/* CTA link */}
+                                        <span
+                                            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest group-hover:gap-4 transition-all duration-300"
+                                            style={{ color: program.textColor }}
+                                        >
+                                            Explore Programme <ArrowRight className="w-3.5 h-3.5" />
+                                        </span>
+                                    </div>
                                 </Link>
                             </motion.div>
                         </FadeIn>

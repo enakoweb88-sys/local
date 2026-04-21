@@ -93,8 +93,8 @@ const ImpactDashboard: React.FC = () => {
                             {/* Blue accent shape bottom-right */}
                             <div className="absolute bottom-0 right-0 w-48 h-48 bg-secondary rounded-tl-[80px] rounded-br-[16px] z-0 translate-x-8 translate-y-8 opacity-20" />
 
-                            {/* Circular image with teal ring */}
-                            <div className="relative z-10 w-[340px] h-[340px] md:w-[420px] md:h-[420px] rounded-full overflow-hidden" style={{ boxShadow: '0 0 0 8px #00BFA5, 0 0 0 12px rgba(0,191,165,0.2)' }}>
+                            {/* Square image with teal ring */}
+                            <div className="relative z-10 w-[340px] h-[340px] md:w-[420px] md:h-[420px] rounded-[2.5rem] overflow-hidden" style={{ boxShadow: '0 0 0 8px #00BFA5, 0 0 0 12px rgba(0,191,165,0.2)' }}>
                                 <img
                                     src="/assets/charity/our-expertize-in-action.png"
                                     alt="Cameroonian children in school"

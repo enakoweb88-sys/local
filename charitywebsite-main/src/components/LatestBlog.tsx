@@ -33,20 +33,20 @@ const LatestBlog = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {latestPosts.map((post, i) => (
                         <FadeIn key={post.id} direction="up" delay={i * 0.1} scale={0.9} threshold={0.2} fullWidth>
-                            <article className="group overflow-hidden rounded-[3rem] transition-all duration-700 flex flex-col h-full">
-                                <div className="relative h-64 overflow-hidden rounded-[3rem]">
+                            <article className="group overflow-hidden transition-all duration-700 flex flex-col h-full bg-white">
+                                <div className="relative aspect-square w-full overflow-hidden">
                                     <img
                                         src={post.image}
                                         alt={post.title}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                                     />
                                     <div className="absolute top-6 left-6">
-                                        <span className="px-4 py-2 rounded-lg bg-white/90 backdrop-blur-md text-navy text-[10px] font-black uppercase tracking-widest">
+                                        <span className="px-4 py-2 bg-white/90 backdrop-blur-md text-navy text-[10px] font-black uppercase tracking-widest">
                                             {post.category}
                                         </span>
                                     </div>
                                 </div>
-                                <div className="p-10 flex flex-col flex-grow">
+                                <div className="pt-8 pb-4 flex flex-col flex-grow">
                                     <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-400 mb-6">
                                         <span className="flex items-center gap-2"><Calendar className="w-3 h-3 text-secondary" /> {post.date}</span>
                                     </div>
